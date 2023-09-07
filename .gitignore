@@ -1,0 +1,8 @@
+.DS_Store
+
+shared-files
+example_data
+data
+
+.env*
+!.env.TEMPLATE
