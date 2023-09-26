@@ -2,6 +2,7 @@ version: "3"
 volumes:
   web_root:
   anzo_data:
+  graphdb_data:
 services:
   ui:
     build:
@@ -42,3 +43,4 @@ services:
     hostname: graphdb
     volumes:
       - ./shared-files:/opt/shared-files
+      - "graphdb_data:/opt/graphdb/home"
