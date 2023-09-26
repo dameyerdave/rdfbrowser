@@ -2,6 +2,7 @@ version: "3"
 volumes:
   web_root:
   anzo_data:
+  rdfox_data:
   graphdb_data:
 services:
   ui:
@@ -44,3 +45,12 @@ services:
     volumes:
       - ./shared-files:/opt/shared-files
       - "graphdb_data:/opt/graphdb/home"
+  rdfox:
+    image: oxfordsemantic/rdfox:6.3a
+    ports:
+      - 12110:12110
+    volumes:
+      - ./rdfox/RDFox.lic:/opt/RDFox/RDFox.lic:ro
+      - rdfox_data:/home/rdfox/.RDFox
+    cap_drop:
+      - ALL
