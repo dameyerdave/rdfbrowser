@@ -1,6 +1,7 @@
 version: "3"
 volumes:
   web_root:
+  anzo_data:
 services:
   ui:
     build:
@@ -32,6 +33,8 @@ services:
     hostname: anzo
     volumes:
       - ./shared-files:/opt/shared-files
+      - "./anzo/config:/opt/anzograph/config"
+      - "anzo_data:/opt/anzograph/persistence"
   graphdb:
     image: ontotext/graphdb:10.3.3
     ports:
